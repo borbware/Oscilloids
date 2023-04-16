@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    [SerializeField] AudioSource explosionAudio;
     [SerializeField] float maxAngularVelocity = 90;
     [SerializeField] float maxAngularVelocityWhenShooting = 90;
     [SerializeField] float maxVelocity = 100;
@@ -43,15 +44,27 @@ public class PlayerMovement : MonoBehaviour
                 appliedMaxAngularVelocity
             );
     }
-
+    void Respawn()
+    {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GameManager.instance.Fade(1f,15f,0f);
+        LevelManager.instance.RestartPhase();
+    }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Asteroid")
+        if (other.gameObject.tag == "Asteroid" && GameManager.instance.fadeTime == 0)
         {
             GameManager.instance.AddLives(-1);
-            gameObject.transform.position = Vector3.zero;
-            gameObject.transform.rotation = Quaternion.identity;
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            explosionAudio.Play();
+            if (GameManager.instance.lives > 0)
+            {
+                float time = 1f;
+                GameManager.instance.Fade(time,0f,15f);
+                Invoke("Respawn",time-0.1f);
+            }
+
         }
     }    
 }

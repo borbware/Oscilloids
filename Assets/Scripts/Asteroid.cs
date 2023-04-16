@@ -13,6 +13,8 @@ public class Asteroid : MonoBehaviour
     [SerializeField] float bulletPushForce;
     [SerializeField] float initTorque;
     [SerializeField] float initForce;
+    [SerializeField] int hurtPoints = 10;
+    [SerializeField] int killPoints = 1000;
     float hurtTime = 1f;
     Renderer rend;
     Rigidbody2D rb;
@@ -35,8 +37,7 @@ public class Asteroid : MonoBehaviour
     void UpdateLevelManager()
     {
         LevelManager.instance.asteroids.Remove(gameObject);
-        if (LevelManager.instance.asteroids.Count == 0)
-            LevelManager.instance.SpawnAsteroids();
+        LevelManager.instance.CheckAsteroidsInvoke();
     }
     void SpawnTinyAsteroids()
     {
@@ -49,15 +50,16 @@ public class Asteroid : MonoBehaviour
     }
     void KillSelf()
     {
-        GameManager.instance.AddScore(1000);
+        GameManager.instance.AddScore(killPoints);
         SpawnTinyAsteroids();
         UpdateLevelManager();
         Instantiate(Explosion, transform.position, transform.rotation);
         Destroy(gameObject);
+        LevelManager.instance.PlayExplosion();
     }
     void HurtSelf(GameObject hurter)
     {
-        GameManager.instance.AddScore(10);
+        GameManager.instance.AddScore(hurtPoints);
         hurtTime = 0f;
         rb.AddForce(hurter.transform.up * bulletPushForce);
     }

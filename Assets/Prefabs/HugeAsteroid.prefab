@@ -218,7 +218,7 @@ Transform:
   m_GameObject: {fileID: 6586945581099966420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4396017413000396489}
   - {fileID: 5207839583109855656}
@@ -296,6 +296,8 @@ MonoBehaviour:
   bulletPushForce: 6
   initTorque: 50
   initForce: 50
+  hurtPoints: 10
+  killPoints: 450
 --- !u!114 &43978100047003692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,5 +323,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026878602b8053042b3f5f0f8399da2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2.5
+  size: 5
   wrapAroundMode: 1
