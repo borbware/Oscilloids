@@ -842,7 +842,7 @@ namespace AudioRender
             }
             cacheRequiresUpdate = false;
 
-            Debug.LogFormat("Updated mesh cache in {0}ms", 1000.0f * (Time.realtimeSinceStartup - startTime));
+            // Debug.LogFormat("Updated mesh cache in {0}ms", 1000.0f * (Time.realtimeSinceStartup - startTime));
         }
 
         private void Swap<T>(ref T a, ref T b)
