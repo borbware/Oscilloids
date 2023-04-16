@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        volumeOn.TransitionTo(0f);
         StartPhase();
     }
     public void FadeOutMusic(float time)
