@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class WrapAround : MonoBehaviour
 {
-
+    enum WrapAroundModeEnum {
+        Rectangular,
+        Circular
+    }
     [SerializeField] float size;
-    void Update()
+    [SerializeField] WrapAroundModeEnum wrapAroundMode = WrapAroundModeEnum.Circular;
+    void RectangularWrapAround()
     {
         float halfScreenHeight = LevelManager.instance.halfScreenHeight;
         float halfScreenWidth = LevelManager.instance.halfScreenWidth;
@@ -21,5 +25,19 @@ public class WrapAround : MonoBehaviour
             transform.position -= yVec;
         if (transform.position.y < -(halfScreenHeight + size))
             transform.position += yVec;
+    }
+    void CircularWrapAround()
+    {
+        float radius = LevelManager.instance.halfScreenWidth;
+        if (transform.position.magnitude > radius + size)
+            transform.position = -transform.position;
+    }
+    void Update()
+    {
+        if (wrapAroundMode == WrapAroundModeEnum.Rectangular)
+            RectangularWrapAround();
+        else if (wrapAroundMode == WrapAroundModeEnum.Circular)
+            CircularWrapAround();
+
     }
 }

@@ -2536,6 +2536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0.3
+  wrapAroundMode: 1
 --- !u!114 &643216799
 MonoBehaviour:
   m_ObjectHideFlags: 0
