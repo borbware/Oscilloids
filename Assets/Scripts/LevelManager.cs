@@ -13,13 +13,15 @@ public class LevelManager : MonoBehaviour
     
     [SerializeField] AudioMixerSnapshot volumeOn;
     [SerializeField] AudioMixerSnapshot volumeOff;
-    void Start()
+    void Awake()
     {
         if (instance != null)
             Destroy(gameObject);
         else
             instance = this;
-
+    }
+    void Start()
+    {
         SpawnAsteroids();
     }
 

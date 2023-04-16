@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  wrapAroundMode: 1
 --- !u!50 &642685517917412294
 Rigidbody2D:
   serializedVersion: 4

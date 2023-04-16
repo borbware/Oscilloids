@@ -290,7 +290,8 @@ MonoBehaviour:
   pos2: {fileID: 6995339030084804075}
   pos3: {fileID: 1206590679586745646}
   tinyAsteroid: {fileID: 3191302549353290286, guid: e717e72bf95e2744384c8b91ab362cff, type: 3}
-  hp: 10
+  Explosion: {fileID: 1578492628400723676, guid: 8b73dbcd39e7f8249adb9d32c898c9fd, type: 3}
+  hp: 5
   hurtPeriod: 0.1
   bulletPushForce: 6
   initTorque: 50
@@ -321,3 +322,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 2.5
+  wrapAroundMode: 1

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2815235245405093237, guid: 468ff4f98b21b8c49a4e5c2274bd634f, type: 3}
       propertyPath: hp
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2815235245405093237, guid: 468ff4f98b21b8c49a4e5c2274bd634f, type: 3}
       propertyPath: pos1
@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: pos3
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2815235245405093237, guid: 468ff4f98b21b8c49a4e5c2274bd634f, type: 3}
+      propertyPath: Explosion
+      value: 
+      objectReference: {fileID: 5593475332609919890, guid: a27568d205bacaa4ab35b8e3b47fc2d5, type: 3}
     - target: {fileID: 2815235245405093237, guid: 468ff4f98b21b8c49a4e5c2274bd634f, type: 3}
       propertyPath: initForce
       value: 200

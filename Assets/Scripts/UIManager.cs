@@ -7,15 +7,17 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] SimpleHelvetica scoreText;
     public static UIManager instance;
-    [SerializeField] Image[] lifeImages;
+    [SerializeField] GameObject[] lifeImages;
 
-    void Start()
+    void Awake()
     {
         if (instance != null)
             Destroy(gameObject);
         else
             instance = this;
-
+    }
+    void Start()
+    {
         UpdateScore(GameManager.instance.score);
         UpdateLives(GameManager.instance.lives);
     }
@@ -35,7 +37,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 1; i < lifeImages.Length + 1; i++)
         {
-            lifeImages[i - 1].enabled = lives >= i;
+            lifeImages[i - 1].SetActive(lives >= i);
         }
     }
 }

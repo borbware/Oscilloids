@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int lives = 4;
     public int score = 0;
-    void Start()
+    void Awake()
     {
         if (instance != null)
             Destroy(gameObject);

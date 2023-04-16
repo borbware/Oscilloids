@@ -6,6 +6,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] Transform pos2;
     [SerializeField] Transform pos3;
     [SerializeField] GameObject tinyAsteroid;
+    [SerializeField] GameObject Explosion;
 
     [SerializeField] int hp;
     [SerializeField] float hurtPeriod;
@@ -48,10 +49,11 @@ public class Asteroid : MonoBehaviour
     }
     void KillSelf()
     {
-        Destroy(gameObject);
         GameManager.instance.AddScore(1000);
         SpawnTinyAsteroids();
         UpdateLevelManager();
+        Instantiate(Explosion, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
     void HurtSelf(GameObject hurter)
     {

@@ -30,7 +30,7 @@ public class WrapAround : MonoBehaviour
     {
         float radius = LevelManager.instance.halfScreenWidth;
         if (transform.position.magnitude > radius + size)
-            transform.position = -transform.position;
+            transform.position = Vector3.ClampMagnitude(-transform.position, radius + size);
     }
     void Update()
     {
